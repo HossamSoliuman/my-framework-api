@@ -4,11 +4,12 @@ namespace App\Licht\Services;
 
 use Illuminate\Support\Str;
 
+
 class MakeControllerService
 {
     public function create($model)
     {
-        $modelVariable = Str::plural(Str::snake($model));
+        $modelVariable = Str::camel($model);
         $fileName = $model . 'Controller.php';
         $stub = file_get_contents(__DIR__ . '/../mystubs/controller.api.stub');
         $stub = str_replace('{{ model }}', $model, $stub);
