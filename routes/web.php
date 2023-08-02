@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('api/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
+Route::get('api/auth/{provider}/callback', [SocialiteController::class, 'handleProviderCallback']);
+
 Route::get('/', function () {
     return 'welcome';
 });
