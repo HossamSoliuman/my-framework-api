@@ -18,7 +18,7 @@ trait ManagesFiles
         $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $fileName = $originalName . '_' . time() . '.' . $file->extension();
         $filePath = $file->move($directory, $fileName);
-        return $filePath;
+        return public_path($filePath);
     }
 
     /**
